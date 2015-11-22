@@ -3,6 +3,10 @@ public class ShoppingCart extends User {
     private Audio[] audioProducts;
     private int currentPage;
 
+    public ShoppingCart(String name) {
+        super(name);
+    }
+
     public int getCurrentPage() {
         return 0;
     }

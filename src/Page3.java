@@ -17,7 +17,7 @@ public class Page3
         us.auth(username);
         System.out.println();
         if (us.authenticated()) {
-            System.out.println("Hello Mr." + us.getAuthedUser());
+            System.out.println("Hello Mr." + us.getAuthedUserName());
             return 5; // Goto page 5, the main page
         }else {
             // Authentication failed
