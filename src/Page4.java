@@ -1,21 +1,15 @@
-import java.io.PrintStream;
-
 public class Page4
-        extends Page
-{
-    Page4(UserService userService)
-    {
-        super(userService);
+        extends Page {
+    Page4(UserService userService, ItemService itemService) {
+        super(userService, itemService);
     }
 
-    public int getPageNo()
-    {
+    public int getPageNo() {
         return 4;
     }
 
-    public int render()
-    {
+    public int render() {
         System.out.println(" No Access");
-        return 1;
+        return 1; // goto the login page
     }
 }

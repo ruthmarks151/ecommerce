@@ -1,13 +1,13 @@
-public class ShoppingCart extends User{
+public class ShoppingCart extends User {
     private Readable[] readables;
     private Audio[] audioProducts;
     private int currentPage;
 
-    public int getCurrentPage(){
+    public int getCurrentPage() {
         return 0;
     }
 
-    public int changeCurrentPage(int newPage){
+    public int changeCurrentPage(int newPage) {
         return newPage;
     }
 

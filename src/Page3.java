@@ -1,34 +1,32 @@
-import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Page3
-        extends Page
-{
-    Page3(UserService userService)
-    {
-        super(userService);
+        extends Page {
+    Page3(UserService userService, ItemService itemService) {
+        super(userService, itemService);
     }
 
-    public int render()
-    {
+    public int render() {
         System.out.print("Enter your username:");
 
         Scanner sc = new Scanner(System.in);
         String username = sc.next();
-        if (!this.us.userExists(username)) {
-            return 4;
+        if (!us.userExists(username)) {
+            return 4;// Goto Page 4, the invalid login page
         }
-        this.us.auth(username);
+        us.auth(username);
         System.out.println();
-        if (this.us.authenticated()) {
-            return 5;
+        if (us.authenticated()) {
+            System.out.println("Hello Mr." + us.getAuthedUser());
+            return 5; // Goto page 5, the main page
+        }else {
+            // Authentication failed
+            System.out.println("No Access");
+            return 1; // Goto Page 1, the login page
         }
-        System.out.println("No Access");
-        return -1;
     }
 
-    public int getPageNo()
-    {
+    public int getPageNo() {
         return 3;
     }
 }

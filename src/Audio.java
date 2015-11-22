@@ -1,6 +1,12 @@
-public class Audio extends Item{
+public class Audio extends Item {
     protected String artistName;
-    public String getInfo(){
+
+    public Audio(int serial, String itemName, String artist, int itemPrice, int itemQuantity) {
+        super(serial, itemName, itemPrice, itemQuantity);
+        artistName = artist;
+    }
+
+    public String getInfo() {
         return null;
     }
 

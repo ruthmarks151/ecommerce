@@ -1,10 +1,10 @@
-public abstract class Page
-{
+public abstract class Page {
     final UserService us;
+    final ItemService is;
+    Page(UserService userService, ItemService itemService) {
+        is = itemService;
+        us = userService;
 
-    Page(UserService userService)
-    {
-        this.us = userService;
     }
 
     public abstract int getPageNo();

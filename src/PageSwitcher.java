@@ -1,28 +1,22 @@
-import java.io.PrintStream;
 import java.util.ArrayList;
 
-public class PageSwitcher
-{
-    public PageSwitcher(UserService us)
-    {
+public class PageSwitcher {
+    public PageSwitcher(UserService us, ItemService is) {
         ArrayList<Page> pages = new ArrayList<>();
-        pages.add(new Page0(us));
-        pages.add(new Page1(us));
-        pages.add(new Page2(us));
-        pages.add(new Page3(us));
-        pages.add(new Page4(us));
-        pages.add(new Page5(us));
-        pages.add(new Page6(us));
-
-
-
-
+        pages.add(new Page0(us,is));
+        pages.add(new Page1(us,is));
+        pages.add(new Page2(us,is));
+        pages.add(new Page3(us,is));
+        pages.add(new Page4(us,is));
+        pages.add(new Page5(us,is));
+        pages.add(new Page6(us,is));
+        pages.add(new Page7(us,is));
+        pages.add(new Page8(us,is));
 
 
 
         int currentPage = 1;
-        while ((currentPage > 0) && (currentPage < pages.size()))
-        {
+        while ((currentPage > 0) && (currentPage < pages.size())) {
             Page page = pages.get(currentPage);
             if (page == null) {
                 break;
