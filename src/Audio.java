@@ -6,8 +6,16 @@ public class Audio extends Item {
         artistName = artist;
     }
 
+
+    @Override
     public String getInfo() {
-        return null;
+
+        return fillString(""+sNo,5) +
+                fillString(name,20) +
+                fillString(artistName, 20) +
+                fillString(""+getPrice(),10)+
+                fillString(""+quantity,20);
+
     }
 
     @Override

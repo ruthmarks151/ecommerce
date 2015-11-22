@@ -12,7 +12,7 @@ public class PageSwitcher {
         pages.add(new Page6(us,is));
         pages.add(new Page7(us,is));
         pages.add(new Page8(us,is));
-
+        pages.add(new Page9(us,is));
 
 
         int currentPage = 1;

@@ -5,6 +5,11 @@ public class MP3 extends Audio {
     }
 
     @Override
+    public String getInfo() {
+        return super.getInfo()+"MP3";
+    }
+
+    @Override
     public int getPrice() {
         return super.getPrice();
     }

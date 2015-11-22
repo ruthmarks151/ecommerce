@@ -8,6 +8,10 @@ public class ItemService {
         return true;
     }
 
+    public boolean isAudio(int serial){
+        return true;
+    }
+
     public boolean available(int serial, int amount){
         return amount > 0;
     }
@@ -21,6 +25,8 @@ public class ItemService {
     }
 
     public String addToCart(int serial, int amount){
+
+
         StringBuilder sb = new StringBuilder();
         sb.append(amount);
         sb.append(" ");
@@ -45,6 +51,14 @@ public class ItemService {
 
 
         return books;
+
+    }
+
+    ArrayList<Audio> getAudios(){
+        ArrayList<Audio> audios = new ArrayList<>();
+        Audio cd = new MP3(2,"This is music","Singing Person",100,5);
+        audios.add(cd);
+        return audios;
 
     }
 }

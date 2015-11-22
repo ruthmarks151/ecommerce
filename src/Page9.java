@@ -1,0 +1,82 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Page9 extends Page{
+
+    Page9(UserService userService, ItemService itemService) {
+        super(userService, itemService);
+    }
+
+    @Override
+    public int getPageNo() {
+        return 8;
+    }
+
+    @Override
+    public int render() {
+
+        System.out.println("Audio");
+        System.out.println();
+        //                  12345123451234512345123451234512345123451234512345123451234512345123451234512345
+        System.out.println("S.No Name of the Book    Author              Price($)  Quantity in Store   Type");
+        ArrayList<Audio> audios = is.getAudios();
+        for (Audio a:audios){
+            System.out.println(a.getInfo());
+        }
+
+
+        Scanner sc = new Scanner(System.in);
+        boolean loop = true;
+        int serial = -1;
+        do {
+            System.out.println("Press -1 to return to the previous menu.");
+            System.out.print("Choose your option: ");
+            String input = sc.next();
+            if (input.equals("-1")){
+                return 6; // Goto page 6, the category page
+            }
+            try{
+                serial = Integer.parseInt(input);
+                if (is.isAudio(serial)){
+                    loop = false;
+                }else{
+                    System.out.println("Please enter the serial number of an audio");
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Please enter an integer serial number");
+            }
+        } while (loop);
+
+        int quantity = -1;
+        loop = true;
+        do {
+            System.out.print("Enter quantity: ");
+            String input = sc.next();
+            if (input.equals("-1")){
+                return 6; // Goto page 6, the category page
+            }
+            try{
+                quantity = Integer.parseInt(input);
+                if (is.available(serial,quantity)){
+                    loop = false;
+                }else{
+                    System.out.println("Please enter an amount you can actually purchase");
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Please enter an integer amount");
+            }
+        } while (loop);
+
+        String result = is.addToCart(serial,quantity);
+        System.out.println(result);
+        System.out.println();
+        do{
+            System.out.print("Press -2 to Continue Shopping or Press 0 to check out:");
+            String input = sc.next();
+            if (input.equals("0"))
+                return 10;
+            else if (input.equals("-2"))
+                return 6;
+        }while (true);
+    }
+}

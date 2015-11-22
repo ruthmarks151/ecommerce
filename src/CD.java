@@ -5,6 +5,11 @@ public class CD extends Audio {
     }
 
     @Override
+    public String getInfo() {
+        return super.getInfo()+"CD";
+    }
+
+    @Override
     public int getPrice() {
         return super.getPrice();
     }
