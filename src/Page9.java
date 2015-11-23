@@ -17,8 +17,8 @@ public class Page9 extends Page{
 
         System.out.println("Audio");
         System.out.println();
-        //                  12345123451234512345123451234512345123451234512345123451234512345123451234512345
-        System.out.println("S.No Name of the Book    Author              Price($)  Quantity in Store   Type");
+        //                  1234512345123451234512345123451234512345123451234512345123451234512345123451234512345
+        System.out.println("S.No Name of the Book         Author              Price($)  Quantity in Store   Type");
         ArrayList<Audio> audios = is.getAudios();
         for (Audio a:audios){
             System.out.println(a.getInfo());

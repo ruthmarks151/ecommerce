@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class UserService {
     User activeUser = null;
+    ShoppingCart cart = null;
     private boolean authenticated = false;
     private ArrayList<User> users;
 
@@ -15,12 +16,17 @@ public class UserService {
                 InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
                 BufferedReader br = new BufferedReader(isr);
         ) {
+
             while ((line = br.readLine()) != null) {
                 users.add(new User(line));
             }
         }catch (IOException e){
             System.out.println("Users.txt could not be found, please place it in "+System.getProperty("user.dir"));
         }
+    }
+
+    public ShoppingCart getCart(){
+        return cart;
     }
 
     public boolean userExists(String username) {
@@ -47,6 +53,7 @@ public class UserService {
         if (userExists(authUsername)) {
             activeUser = getUser(authUsername);
             authenticated = true;
+
         } else {
             throw new RuntimeException("Attempt to auth user which does not exist");
         }
@@ -63,5 +70,6 @@ public class UserService {
     public void deauth() {
         activeUser = null;
         authenticated = false;
+
     }
 }

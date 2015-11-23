@@ -1,27 +1,21 @@
+import java.util.ArrayList;
+
 public class ShoppingCart extends User {
-    private Readable[] readables;
-    private Audio[] audioProducts;
     private int currentPage;
+    private ArrayList<Item> content = new ArrayList<>();
 
     public ShoppingCart(String name) {
         super(name);
     }
 
-    public int getCurrentPage() {
-        return 0;
+    public ShoppingCart(User u){super(u.getUsername());}
+
+    public String getContent(){
+
     }
 
-    public int changeCurrentPage(int newPage) {
-        return newPage;
+    public void addItem(Item i){
+        content.add(i);
     }
-
-    public Readable[] getReadables() {
-        return readables;
-    }
-
-    public Audio[] getAudioProductss() {
-        return audioProducts;
-    }
-
 
 }

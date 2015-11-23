@@ -5,6 +5,19 @@ public class CD extends Audio {
     }
 
     @Override
+    public String getType() {
+        return "CD";
+    }
+
+    @Override
+    public Item buy(int amount) {
+        if (amount > quantity)
+            throw new RuntimeException("Attempt to buy more "+name+" than are available");
+        amount -= quantity;
+        return new CD(sNo,getName(),artistName,getPrice(),amount);
+    }
+
+    @Override
     public String getInfo() {
         return super.getInfo()+"CD";
     }

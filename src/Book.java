@@ -5,6 +5,19 @@ public class Book extends Readable {
     }
 
     @Override
+    public String getType() {
+        return "Book";
+    }
+
+    @Override
+    public Item buy(int amount) {
+        if (amount > quantity)
+            throw new RuntimeException("Attempt to buy more "+name+" than are available");
+        amount -= quantity;
+        return new Book(sNo,getName(),authorName,getPrice(),amount);
+    }
+
+    @Override
     public int getPrice() {
         return super.getPrice();
     }

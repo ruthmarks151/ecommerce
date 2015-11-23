@@ -12,6 +12,22 @@ public abstract class Item {
         quantity =itemQuantity;
     }
 
+    public int getSerial(){
+        return sNo;
+    }
+
+    public abstract String getType();
+
+    public String getName(){
+        return name;
+    }
+
+    public abstract Item buy(int amount);
+
+    public boolean available(int amount){
+        return amount <= quantity;
+    }
+
     public abstract String getInfo();
 
     public abstract int getPrice();

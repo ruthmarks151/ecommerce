@@ -19,8 +19,8 @@ public class Page8 extends Page{
 
         System.out.println("Readables");
         System.out.println();
-        //                  12345123451234512345123451234512345123451234512345123451234512345123451234512345
-        System.out.println("S.No Name of the Book    Author              Price($)  Quantity in Store   Type");
+        //                  1234512345123451234512345123451234512345123451234512345123451234512345123451234512345
+        System.out.println("S.No Name of the Book         Author              Price($)  Quantity in Store   Type");
         ArrayList<Readable> readables = is.getReadables();
         for (Readable r:readables){
             System.out.println(r.getInfo());

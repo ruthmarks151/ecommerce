@@ -6,16 +6,28 @@ public class Audio extends Item {
         artistName = artist;
     }
 
+    @Override
+    public String getType() {
+        return "Audio";
+    }
 
     @Override
     public String getInfo() {
 
         return fillString(""+sNo,5) +
-                fillString(name,20) +
+                fillString(name,25) +
                 fillString(artistName, 20) +
                 fillString(""+getPrice(),10)+
                 fillString(""+quantity,20);
 
+    }
+
+    @Override
+    public Item buy(int amount) {
+        if (amount > quantity)
+            throw new RuntimeException("Attempt to buy more "+name+" than are available");
+        amount -= quantity;
+        return new Audio(sNo,getName(),artistName,getPrice(),amount);
     }
 
     @Override
