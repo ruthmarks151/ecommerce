@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: An abstract implementation of the generic Item.
+*/
 public abstract class Item {
 
     protected int price;

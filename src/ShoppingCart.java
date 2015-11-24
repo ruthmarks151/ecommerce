@@ -1,3 +1,10 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: A class that handles a shopping cart. Items can be added and checked out
+*/
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

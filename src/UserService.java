@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: This class encapsulates a lot of data handling and methods related to users and shopping carts
+*/
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;

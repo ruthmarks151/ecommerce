@@ -1,3 +1,10 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: This class handles all of the switching between pages.
+*               It implements a bunch of other methods and fields because it has to in the spec
+*/
 import java.util.ArrayList;
 
 public class UserInterface {

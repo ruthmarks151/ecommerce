@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: This data class represents a generic audio product.
+*/
 public class Audio extends Item {
     protected String artistName;
 

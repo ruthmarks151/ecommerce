@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: A data class to represent any CD
+*/
 public class CD extends Audio {
 
     public CD(int serial, String itemName, String artist, int itemPrice, int itemQuantity) {

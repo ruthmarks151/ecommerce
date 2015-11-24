@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: The ItemService encapsulates most of the methods regarding loading, saving, and accessing items.
+*/
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;

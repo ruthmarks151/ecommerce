@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: This class represents an MP3 held in the store.
+*/
 public class MP3 extends Audio {
 
     public MP3(int serial, String itemName, String artist, int itemPrice, int itemQuantity) {

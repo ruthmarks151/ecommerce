@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: Page 4 as defined in the specifications document.
+*/
 public class Page4
         extends Page {
     Page4(UserService userService, ItemService itemService) {

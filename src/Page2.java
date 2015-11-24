@@ -1,3 +1,9 @@
+/*
+* Name:​ Ryan Marks, Nishanth Balamohan, Kabir Kenth
+* MacID:​ MarksR2, balamon, kenthks
+* Student Number:​ 001406077, 001411319, 001429801
+* Description: Page 2 as is defined in the specifications document
+*/
 import java.util.Scanner;
 
 public class Page2 extends Page {
