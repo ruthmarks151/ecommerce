@@ -3,12 +3,12 @@ public class CD extends Audio {
     public CD(int serial, String itemName, String artist, int itemPrice, int itemQuantity) {
         super(serial, itemName, artist, itemPrice, itemQuantity);
     }
-
+    //Returns type as "CD"
     @Override
     public String getType() {
         return "CD";
     }
-
+    //Notifies user if they are attempting to buy more of a product that what is available.
     @Override
     public Item buy(int amount) {
         if (amount > quantity)
@@ -16,17 +16,17 @@ public class CD extends Audio {
         quantity -= amount;
         return new CD(sNo,getName(),artistName, getBasePrice(),amount);
     }
-
+    //Adds "CD" to the end of the implementation of getInfo
     @Override
     public String getInfo() {
         return super.getInfo()+"CD";
     }
-
+    //Returns the base price
     @Override
     public int getBasePrice() {
         return super.getBasePrice();
     }
-
+    //Returns the final price including enviro, shipping and hst.
     @Override
     public int getPrice() {
         int base = getBasePrice();
