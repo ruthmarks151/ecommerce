@@ -68,7 +68,26 @@ public class UserService {
     }
 
     public void register(String username) {
+
         users.add(new User(username));
+
+        FileWriter fw = null;
+        try
+        {
+            String filename= "Users.txt";
+            fw = new FileWriter(filename,true); //the true will append the new data
+            fw.write(username+"\n");//appends the string to the file
+        }
+        catch(IOException ioe)
+        {
+            System.err.println("IOException: " + ioe.getMessage());
+        }finally {
+            try {
+                fw.close();
+            }catch (IOException e){
+                throw new RuntimeException("Could not close Users.txt");
+            }
+        }
     }
 
     public String getAuthedUserName() {
@@ -90,7 +109,13 @@ public class UserService {
         }catch (IOException e){
             System.out.println("ItemsBought.txt could not be found, please place it in "+System.getProperty("user.dir"));
         }
-        int confNo = Integer.parseInt(lastLine.substring(1,5));// Assume 4 digit confirmation code
+        int confNo;
+        try {
+            confNo = Integer.parseInt(lastLine.substring(1, 5));// Assume 4 digit confirmation code
+        }catch (Exception e) {
+            confNo = 0;
+        }
+
         confNo++;
         String confCode = "U"+String.format("%04d ", confNo);
         String checkoutString = cart.checkout();

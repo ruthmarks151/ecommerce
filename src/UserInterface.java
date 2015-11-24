@@ -35,6 +35,10 @@ public class UserInterface {
         pages.get(9).render();
     }
 
+    public void clear(){
+        //                  12345678901234567890123456789012345678901234567890123456789012345678901234567890
+        System.out.println("--------------------------------------------------------------------------------");
+    }
 
     public UserInterface(UserService us, ItemService is) {
         this.is = is;
@@ -51,10 +55,12 @@ public class UserInterface {
         pages.add(new Page8(us,is));
         pages.add(new Page9(us,is));
         pages.add(new Page10(us,is));
+        pages.add(new Page11(us,is));
 
 
 
         while ((currentPage > 0) && (currentPage < pages.size())) {
+            clear();
             getReadables();
             getAudioProducts();
 
