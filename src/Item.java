@@ -5,7 +5,7 @@ public abstract class Item {
     protected String name;
     protected int quantity;
 
-    public Item(int serial, String itemName,int itemPrice, int itemQuantity) {
+    public Item(int serial, String itemName,int itemPrice, int itemQuantity) {//declaring the Item constructor.
         sNo = serial;
         name = itemName;
         price = itemPrice;
