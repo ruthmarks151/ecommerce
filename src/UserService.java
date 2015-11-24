@@ -53,10 +53,18 @@ public class UserService {
         if (userExists(authUsername)) {
             activeUser = getUser(authUsername);
             authenticated = true;
-
+            cart = new ShoppingCart(activeUser);
         } else {
             throw new RuntimeException("Attempt to auth user which does not exist");
         }
+    }
+
+    public void addItem(Item i){
+        cart.addItem(i);
+    }
+
+    public String getBilling(){
+        return cart.getCheckoutDetails();
     }
 
     public void register(String username) {

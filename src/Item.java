@@ -30,7 +30,13 @@ public abstract class Item {
 
     public abstract String getInfo();
 
-    public abstract int getPrice();
+    public int getQuantity(){
+        return quantity;
+    }
+
+    public int getPrice(){
+        return price;
+    }
 
     protected String fillString(String s, int len){
         int delta = len - s.length();

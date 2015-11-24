@@ -26,12 +26,12 @@ public class Readable extends Item {
     public Item buy(int amount) {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
-        amount -= quantity;
+        quantity -= amount;
         return new Readable(sNo,getName(),authorName,getPrice(),amount);
     }
 
     @Override
     public int getPrice() {
-        return 0;
+        return super.getPrice();
     }
 }

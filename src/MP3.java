@@ -13,7 +13,7 @@ public class MP3 extends Audio {
     public Item buy(int amount) {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
-        amount -= quantity;
+        quantity -= amount;
         return new MP3(sNo,getName(),artistName,getPrice(),amount);
     }
 

@@ -7,7 +7,6 @@ public class ItemService {
 
     private ArrayList<Readable> readables = new ArrayList<>();
     private ArrayList<Audio> audios = new ArrayList<>();
-    private ShoppingCart cart = null;
     private UserService us;
 
     public ItemService(UserService userService) {
@@ -203,9 +202,12 @@ public class ItemService {
             sb.append("s");
         sb.append(" ");
         if (available(serial,amount)){
-            sb.append("successfully added to your cart");
-            //cart = us.getCart();
-            cart.addItem(item.buy(amount));
+            if (us.authenticated()) {
+                us.addItem(item.buy(amount));
+                sb.append("successfully added to your cart");
+            }else {
+                sb.append("could not be added to your cart");
+            }
         }else{
             sb.append("could not be added to your cart");
         }
