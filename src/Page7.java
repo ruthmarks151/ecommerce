@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Page7 extends Page {
     Page7(UserService userService, ItemService itemService) {

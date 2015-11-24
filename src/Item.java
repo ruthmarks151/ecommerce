@@ -25,7 +25,7 @@ public abstract class Item {
     public abstract Item buy(int amount);
 
     public boolean available(int amount){
-        return amount <= quantity;
+        return amount <= quantity && amount > 0;
     }
 
     public abstract String getInfo();

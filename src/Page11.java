@@ -24,6 +24,7 @@ public class Page11 extends Page {
                 System.out.println(line);
             }
         }catch (IOException e){
+            // There's no real problem if items bought doesn't exist yet
         }
         return 5;// Goto 5 the main page
     }

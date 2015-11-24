@@ -24,10 +24,10 @@ public class Page5
             System.out.print("Choose your option: ");
 
             opt = sc.next();
-        } while ((opt.equals("1")) &&
-                (opt.equals("2")) &&
-                (opt.equals("3")) &&
-                (opt.equals("4")));
+        } while (!((opt.equals("1")) ||
+                (opt.equals("2")) ||
+                (opt.equals("3")) ||
+                (opt.equals("4"))));
         switch (opt) {
             case "1":
                 return 6;// Goto page 6, the category page

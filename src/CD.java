@@ -21,11 +21,7 @@ public class CD extends Audio {
     public String getInfo() {
         return super.getInfo()+"CD";
     }
-    //Returns the base price
-    @Override
-    public int getBasePrice() {
-        return super.getBasePrice();
-    }
+
     //Returns the final price including enviro, shipping and hst.
     @Override
     public int getPrice() {

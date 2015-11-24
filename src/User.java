@@ -10,8 +10,4 @@ public class User {
         return username;
     }
 
-    public boolean isAdmin(){
-        return false;
-    }
-
 }

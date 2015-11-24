@@ -1,5 +1,3 @@
-import com.sun.deploy.util.SyncAccess;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -76,16 +76,18 @@ public class UserService {
         {
             String filename= "Users.txt";
             fw = new FileWriter(filename,true); //the true will append the new data
-            fw.write(username+"\n");//appends the string to the file
+            fw.write("\n"+username);//appends the string to the file
         }
         catch(IOException ioe)
         {
             System.err.println("IOException: " + ioe.getMessage());
         }finally {
-            try {
-                fw.close();
-            }catch (IOException e){
-                throw new RuntimeException("Could not close Users.txt");
+            if (fw != null) {
+                try {
+                    fw.close();
+                } catch (IOException e) {
+                    throw new RuntimeException("Could not close Users.txt");
+                }
             }
         }
     }
@@ -131,10 +133,12 @@ public class UserService {
         {
             System.err.println("IOException: " + ioe.getMessage());
         }finally {
-            try {
-                fw.close();
-            }catch (IOException e){
-                throw new RuntimeException("Could not close ItemsBought.txt");
+            if (fw != null) {
+                try {
+                    fw.close();
+                } catch (IOException e) {
+                    throw new RuntimeException("Could not close ItemsBought.txt");
+                }
             }
         }
 
