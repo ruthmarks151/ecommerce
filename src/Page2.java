@@ -8,7 +8,7 @@ public class Page2 extends Page {
     public int getPageNo() {
         return 2;
     }
-
+    //Asks user to pick a username, if the name is taken it will notify the user and asks again
     public int render() {
         Scanner sc = new Scanner(System.in);
 
