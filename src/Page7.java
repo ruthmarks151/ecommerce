@@ -10,7 +10,7 @@ public class Page7 extends Page {
     }
 
     public int render() {
-        //Scanner sc = new Scanner(System.in);
+
         System.out.println(us.getCartContents());
         return 5;// Goto page 5, the main page
     }
