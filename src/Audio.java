@@ -5,12 +5,12 @@ public class Audio extends Item {
         super(serial, itemName, itemPrice, itemQuantity);
         artistName = artist;
     }
-
+    //Returns type as "Audio"
     @Override
     public String getType() {
         return "Audio";
     }
-
+    //Provides additional information about the audio
     @Override
     public String getInfo() {
 
@@ -21,7 +21,7 @@ public class Audio extends Item {
                 fillString(""+quantity,20);
 
     }
-
+    //Notifies user if they are attempting to buy more of a product that what is available.
     @Override
     public Item buy(int amount) {
         if (amount > quantity)
@@ -29,7 +29,7 @@ public class Audio extends Item {
         quantity -= amount;
         return new Audio(sNo,getName(),artistName, getBasePrice(),amount);
     }
-
+    //Returns price including taxes.
     @Override
     public int getPrice() {
         int base = getBasePrice();
