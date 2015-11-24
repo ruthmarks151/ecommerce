@@ -6,12 +6,12 @@ public class Page7 extends Page {
     }
 
     public int getPageNo() {
-        return 6;
+        return 7;
     }
 
     public int render() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Sample Shopping Cart");
+        //Scanner sc = new Scanner(System.in);
+        System.out.println(us.getCartContents());
         return 5;// Goto page 5, the main page
     }
 }

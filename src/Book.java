@@ -14,12 +14,12 @@ public class Book extends Readable {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
         quantity -= amount;
-        return new Book(sNo,getName(),authorName,getPrice(),amount);
+        return new Book(sNo,getName(),authorName, getBasePrice(),amount);
     }
 
     @Override
-    public int getPrice() {
-        return super.getPrice();
+    public int getBasePrice() {
+        return super.getBasePrice();
     }
 
     @Override
@@ -27,5 +27,13 @@ public class Book extends Readable {
         return super.getInfo()+ "Book ";
     }
 
+    @Override
+    public int getPrice() {
+        int base = getBasePrice();
+        int enviro = (int)(base * 0.02);
+        int shipping = (int)(base * 0.10);
+        int hst = (int)(base * 0.13);
 
+        return base + enviro + shipping + hst;
+    }
 }

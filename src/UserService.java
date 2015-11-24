@@ -25,8 +25,8 @@ public class UserService {
         }
     }
 
-    public ShoppingCart getCart(){
-        return cart;
+    public String getCartContents(){
+        return cart.getContent();
     }
 
     public boolean userExists(String username) {

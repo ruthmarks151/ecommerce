@@ -1,7 +1,10 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ShoppingCart extends User {
     private ArrayList<Item> content = new ArrayList<>();
+    private ArrayList<Date> purchaseDates = new ArrayList<>();
 
     public ShoppingCart(String name) {
         super(name);
@@ -10,7 +13,21 @@ public class ShoppingCart extends User {
     public ShoppingCart(User u){super(u.getUsername());}
 
     public String getContent(){
-        return null;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < content.size(); i++){
+            Item item = content.get(i);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            sb.append(item.getSerial());
+            sb.append(',');
+            sb.append(item.getName());
+            sb.append(',');
+            sb.append(sdf.format(purchaseDates.get(i)));
+            sb.append(',');
+            sb.append(item.getQuantity());
+            sb.append('\n');
+
+        }
+        return sb.toString();
     }
 
     public String getCheckoutDetails(){
@@ -25,15 +42,15 @@ public class ShoppingCart extends User {
         for(Item i:content){
             String name = i.fillString(i.getName(),30);
             String quantity = i.fillString(i.getQuantity()+"",10);
-            String price = i.fillString(i.getPrice() + "", 10);
+            String price = i.fillString(i.getBasePrice() + "", 10);
             sb.append(name+quantity+price+"\n");
 
             if (i instanceof CD || i instanceof Book){
-                enviroTaxTotal += i.getPrice() * i.getQuantity() * 0.02;
-                shippingTotal += i.getPrice() * i.getQuantity() * 0.1;
+                enviroTaxTotal += i.getBasePrice() * i.getQuantity() * 0.02;
+                shippingTotal += i.getBasePrice() * i.getQuantity() * 0.1;
             }
-            hstTotal += i.getPrice() * i.getQuantity() * 0.13;
-            basePriceTotal  += i.getPrice() * i.getQuantity();
+            hstTotal += i.getBasePrice() * i.getQuantity() * 0.13;
+            basePriceTotal  += i.getBasePrice() * i.getQuantity();
 
 
         }
@@ -53,6 +70,7 @@ public class ShoppingCart extends User {
 
     public void addItem(Item i){
         content.add(i);
+        purchaseDates.add(new Date());
     }
 
 }

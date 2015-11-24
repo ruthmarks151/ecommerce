@@ -9,16 +9,24 @@ public class eBook extends Readable {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
         quantity -= amount;
-        return new eBook(sNo,getName(),authorName,getPrice(),amount);
+        return new eBook(sNo,getName(),authorName, getBasePrice(),amount);
     }
 
     @Override
-    public int getPrice() {
-        return super.getPrice();
+    public int getBasePrice() {
+        return super.getBasePrice();
     }
 
     @Override
     public String getInfo() {
         return super.getInfo()+"eBook";
+    }
+
+    @Override
+    public int getPrice() {
+        int base = getBasePrice();
+        int hst = (int)(base * 0.13);
+
+        return base +  hst;
     }
 }

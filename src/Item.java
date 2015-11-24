@@ -34,6 +34,10 @@ public abstract class Item {
         return quantity;
     }
 
+    public int getBasePrice(){
+        return price;
+    }
+
     public int getPrice(){
         return price;
     }

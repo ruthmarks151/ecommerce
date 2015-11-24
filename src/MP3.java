@@ -14,7 +14,7 @@ public class MP3 extends Audio {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
         quantity -= amount;
-        return new MP3(sNo,getName(),artistName,getPrice(),amount);
+        return new MP3(sNo,getName(),artistName, getBasePrice(),amount);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class MP3 extends Audio {
     }
 
     @Override
-    public int getPrice() {
-        return super.getPrice();
+    public int getBasePrice() {
+        return super.getBasePrice();
     }
 }

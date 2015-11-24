@@ -12,7 +12,7 @@ public class Readable extends Item {
         return fillString(""+sNo,5) +
                 fillString(name,25) +
                 fillString(authorName, 20) +
-                fillString(""+getPrice(),10)+
+                fillString(""+ getBasePrice(),10)+
                 fillString(""+quantity,20);
 
     }
@@ -27,11 +27,15 @@ public class Readable extends Item {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
         quantity -= amount;
-        return new Readable(sNo,getName(),authorName,getPrice(),amount);
+        return new Readable(sNo,getName(),authorName, getBasePrice(),amount);
     }
+
+
 
     @Override
     public int getPrice() {
-        return super.getPrice();
+        int base = getBasePrice();
+        int hst = (int)(base * 0.13);
+        return base + hst;
     }
 }

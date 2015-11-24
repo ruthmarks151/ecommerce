@@ -17,7 +17,7 @@ public class Audio extends Item {
         return fillString(""+sNo,5) +
                 fillString(name,25) +
                 fillString(artistName, 20) +
-                fillString(""+getPrice(),10)+
+                fillString(""+ getBasePrice(),10)+
                 fillString(""+quantity,20);
 
     }
@@ -27,11 +27,14 @@ public class Audio extends Item {
         if (amount > quantity)
             throw new RuntimeException("Attempt to buy more "+name+" than are available");
         quantity -= amount;
-        return new Audio(sNo,getName(),artistName,getPrice(),amount);
+        return new Audio(sNo,getName(),artistName, getBasePrice(),amount);
     }
 
     @Override
     public int getPrice() {
-        return super.getPrice();
+        int base = getBasePrice();
+        int hst = (int)(base * 0.13);
+
+        return base + hst;
     }
 }
