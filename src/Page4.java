@@ -7,7 +7,7 @@ public class Page4
     public int getPageNo() {
         return 4;
     }
-
+    //Notifies user that access was not granted and returns to the log in page
     public int render() {
         System.out.println(" No Access");
         return 1; // goto the login page

@@ -5,7 +5,7 @@ public class Page3
     Page3(UserService userService, ItemService itemService) {
         super(userService, itemService);
     }
-
+    //Notifies user if they are granted access, if not it will return the user to the login page
     public int render() {
         System.out.print("Enter your username:");
 
