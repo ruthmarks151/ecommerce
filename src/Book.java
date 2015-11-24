@@ -16,16 +16,19 @@ public class Book extends Readable {
         quantity -= amount;
         return new Book(sNo,getName(),authorName, getBasePrice(),amount);
     }
+
     //Returns the base price.
     @Override
     public int getBasePrice() {
         return super.getBasePrice();
     }
-    //Adds "Book" to the end of the result of the implementation of getInfo.
+
+    //Adds "Book" to the end of the result of the parent implementation of getInfo.
     @Override
     public String getInfo() {
         return super.getInfo()+ "Book ";
     }
+
     //Returns the price of product including enviro, shipping and hst.
     @Override
     public int getPrice() {

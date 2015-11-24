@@ -64,7 +64,7 @@ public class UserInterface {
             }
             currentPage = page.render();
 
-            if (pageOverride < 0){
+            if (pageOverride > 0){
                 currentPage = pageOverride;
                 pageOverride = -1;
             }

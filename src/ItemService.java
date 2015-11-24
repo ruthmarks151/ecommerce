@@ -148,6 +148,121 @@ public class ItemService {
         }
     }
 
+    private void saveBooks(){
+        BufferedWriter output = null;
+
+        try {
+            File file = new File("Books.txt");
+            output = new BufferedWriter(new FileWriter(file));
+
+            for (Readable r:getReadables()){
+                if (r instanceof  Book){
+                    Book b = (Book)r;
+                    output.write((b.getSerial())+","+b.getName()+","+b.getAuthor()+","+b.getBasePrice()+","+b.getQuantity()+"\n");
+                }
+            }
+
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null )
+                try {
+                    output.close();
+                }catch (IOException e){
+                    throw new RuntimeException("Unable to close Books.txt");
+                }
+        }
+
+    }
+
+    private void saveEbooks(){
+        BufferedWriter output = null;
+
+        try {
+            File file = new File("Ebooks.txt");
+            output = new BufferedWriter(new FileWriter(file));
+
+            for (Readable r:getReadables()){
+                if (r instanceof  eBook){
+                    eBook b = (eBook)r;
+                    output.write((b.getSerial())+","+b.getName()+","+b.getAuthor()+","+b.getBasePrice()+","+b.getQuantity()+"\n");
+                }
+            }
+
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null )
+                try {
+                    output.close();
+                }catch (IOException e){
+                    throw new RuntimeException("Unable to close Ebooks.txt");
+                }
+        }
+
+    }
+
+    private void saveCDs(){
+        BufferedWriter output = null;
+
+        try {
+            File file = new File("CDs.txt");
+            output = new BufferedWriter(new FileWriter(file));
+
+            for (Audio a:getAudios()){
+                if (a instanceof  CD){
+                    CD c = (CD)a;
+                    output.write((c.getSerial())+","+c.getName()+","+c.getArtist()+","+c.getBasePrice()+","+c.getQuantity()+"\n");
+                }
+            }
+
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null )
+                try {
+                    output.close();
+                }catch (IOException e){
+                    throw new RuntimeException("Unable to close CDs.txt");
+                }
+        }
+
+    }
+
+    private void saveMP3s(){
+        BufferedWriter output = null;
+
+        try {
+            File file = new File("MP3.txt");
+            output = new BufferedWriter(new FileWriter(file));
+
+            for (Audio a:getAudios()){
+                if (a instanceof  MP3){
+                    MP3 m = (MP3)a;
+                    output.write((m.getSerial()) + "," + m.getName() + "," + m.getArtist() + "," + m.getBasePrice() + "," + m.getQuantity()+"\n");
+                }
+            }
+
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null )
+                try {
+                    output.close();
+                }catch (IOException e){
+                    throw new RuntimeException("Unable to close MP3.txt");
+                }
+        }
+
+    }
+
+    private void saveAll(){
+        saveBooks();
+        saveCDs();
+        saveEbooks();
+        saveMP3s();
+    }
+
     public Item getItem(int serial){
         for (Readable r:readables){
             if (r.getSerial() == serial)
@@ -211,9 +326,8 @@ public class ItemService {
         }else{
             sb.append("could not be added to your cart");
         }
+        saveAll();
         return sb.toString();
-
-
     }
 
     ArrayList<Readable> getReadables(){

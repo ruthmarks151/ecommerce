@@ -22,8 +22,5 @@ public class MP3 extends Audio {
         return super.getInfo()+"MP3";
     }
 
-    @Override
-    public int getBasePrice() {
-        return super.getBasePrice();
-    }
+
 }

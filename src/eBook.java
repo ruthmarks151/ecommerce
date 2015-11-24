@@ -11,16 +11,14 @@ public class eBook extends Readable {
         quantity -= amount;
         return new eBook(sNo,getName(),authorName, getBasePrice(),amount);
     }
-    //Returns the base price of the product
-    @Override
-    public int getBasePrice() {
-        return super.getBasePrice();
-    }
-    //Adds eBook to the end of the implementation of getInfo
+
+
+    //Adds eBook to the end of the parent implementation of getInfo
     @Override
     public String getInfo() {
         return super.getInfo()+"eBook";
     }
+
     //Returns the price including tax
     @Override
     public int getPrice() {

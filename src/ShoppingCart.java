@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +15,42 @@ public class ShoppingCart extends User {
     }
 
     public ShoppingCart(User u){super(u.getUsername());}
+
+    public String checkout(){
+        StringBuilder sb = new StringBuilder();
+        int total = 0;
+        File file = new File("Cart"+getUsername()+".txt");
+        file.delete();
+        for (Item i:content){
+            sb.append(i.getName());
+            sb.append(" ");
+            total += i.getPrice() * i.getQuantity();
+        }
+        sb.append(total);
+        content = new ArrayList<>();
+        purchaseDates = new ArrayList<>();
+        return sb.toString();
+    }
+
+    private void saveCart(){
+        BufferedWriter output = null;
+
+        try {
+            File file = new File("Cart"+getUsername()+".txt");
+            output = new BufferedWriter(new FileWriter(file));
+            output.write(getContent());
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null )
+                try {
+                    output.close();
+                }catch (IOException e){
+                    throw new RuntimeException("Unable to close MP3.txt");
+                }
+        }
+
+    }
 
     public String getContent(){
         StringBuilder sb = new StringBuilder();
@@ -71,6 +111,7 @@ public class ShoppingCart extends User {
     public void addItem(Item i){
         content.add(i);
         purchaseDates.add(new Date());
+        saveCart();
     }
 
 }

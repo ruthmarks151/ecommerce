@@ -75,9 +75,52 @@ public class UserService {
         return activeUser.getUsername();
     }
 
+    public String checkout(){
+        String line;
+        String lastLine = "U0000";
+        try (
+                InputStream fis = new FileInputStream("ItemsBought.txt");
+                InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+                BufferedReader br = new BufferedReader(isr);
+        ) {
+            br.readLine();// Get header out of the way
+            while ((line = br.readLine()) != null) {
+                lastLine = line;
+            }
+        }catch (IOException e){
+            System.out.println("ItemsBought.txt could not be found, please place it in "+System.getProperty("user.dir"));
+        }
+        int confNo = Integer.parseInt(lastLine.substring(1,5));// Assume 4 digit confirmation code
+        confNo++;
+        String confCode = "U"+String.format("%04d ", confNo);
+        String checkoutString = cart.checkout();
+
+        FileWriter fw = null;
+        try
+        {
+            String filename= "ItemsBought.txt";
+            fw = new FileWriter(filename,true); //the true will append the new data
+            fw.write(confCode+checkoutString+"\n");//appends the string to the file
+        }
+        catch(IOException ioe)
+        {
+            System.err.println("IOException: " + ioe.getMessage());
+        }finally {
+            try {
+                fw.close();
+            }catch (IOException e){
+                throw new RuntimeException("Could not close ItemsBought.txt");
+            }
+        }
+
+        return confCode;
+    }
+
     public void deauth() {
         activeUser = null;
         authenticated = false;
 
     }
+
+
 }

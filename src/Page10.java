@@ -20,7 +20,10 @@ public class Page10 extends Page{
             input = sc.next();
         }while (!(input.equalsIgnoreCase("Yes") || input.equalsIgnoreCase("No")));
         if (input.equalsIgnoreCase("Yes")){
-            //us.checkout()
+            String user = us.getAuthedUserName();
+            String confNo = us.checkout();
+            System.out.println("Confirmation ID:"+confNo);
+            System.out.println("Items shipped to Mr."+user);
             return -1;
         }else{
             return 5;

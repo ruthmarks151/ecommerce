@@ -6,6 +6,10 @@ public class Readable extends Item {
         authorName = itemAuthor;
     }
 
+    public String getAuthor() {
+        return authorName;
+    }
+
     @Override
     public String getInfo() {
 

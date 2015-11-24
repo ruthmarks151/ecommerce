@@ -29,12 +29,16 @@ public class Audio extends Item {
         quantity -= amount;
         return new Audio(sNo,getName(),artistName, getBasePrice(),amount);
     }
+
+    public String getArtist(){
+        return artistName;
+    }
+
     //Returns price including taxes.
     @Override
     public int getPrice() {
         int base = getBasePrice();
         int hst = (int)(base * 0.13);
-
         return base + hst;
     }
 }
