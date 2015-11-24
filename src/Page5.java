@@ -9,7 +9,7 @@ public class Page5
     public int getPageNo() {
         return 5;
     }
-
+    //From this page the user can view the items by category and the shopping cart and allows the option to sign out
     public int render() {
         assert (this.us.authenticated());
 
